@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private float _inY = 0, _inX = 0;
+    private bool _inJump, _inJumpDown;
 
     private Rigidbody2D _rb;
     private Animation _animation;
@@ -32,23 +33,26 @@ public class PlayerController : MonoBehaviour
     {
         _inX = Input.GetAxis("Horizontal");
         _inY = Input.GetAxis("Vertical");
+        _inJumpDown = Input.GetButtonDown("Jump") || _inJumpDown;
+        _inJump = Input.GetButton("Jump");
     }
 
     void FixedUpdate() {
         if (_rb.velocity.y < 0) {
             _rb.AddForce(Vector2.up * Physics2D.gravity.y * (_fallMultiplier - 1));
-        } else if (_rb.velocity.y > 0 && !Input.GetButton("Jump")) {
+        } else if (_rb.velocity.y > 0 && !_inJump) {
             _rb.AddForce(Vector2.up * Physics2D.gravity.y * (_lowJumpMultiplier - 1));
         }
         if (CanJump()) {
             Jump();
         }
+        _inJumpDown = false;
     }
 
     private bool CanJump()
     {
         if (_isJumping) return false;
-        if (Input.GetButtonDown("Jump")) return true;
+        if (_inJumpDown) return true;
         // TODO: Check for floor
         return false;
     }
