@@ -12,6 +12,6 @@ public class UiController : MonoBehaviour
     void Update()
     {
         TimeSpan timeSpan = TimeSpan.FromSeconds(Time.time);
-        _timer.text = string.Format("{0:D2}:{1:D2}:{2:D3}", timeSpan.TotalMinutes, timeSpan.Seconds, timeSpan.Milliseconds);
+        _timer.text = string.Format("{0:D2}:{1:D2}:{2:D3}", (int) timeSpan.TotalMinutes, timeSpan.Seconds, timeSpan.Milliseconds);
     }
 }

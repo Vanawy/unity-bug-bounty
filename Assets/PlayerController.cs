@@ -23,12 +23,28 @@ public class PlayerController : MonoBehaviour
     [Range(0, 5)]
     private float _lowJumpMultiplier = 2f;
     [SerializeField]
-    private ActiveTrigger _jumpTrigger;
+    private float _wallSlideMultiplier = 0.5f;
+    [SerializeField]
+    [Tooltip("Time when player cant change direction after walljump")]
+    private float _wallJumpMoveDelay = 0.2f;
+    private float _wallJumpTime = -1;
+    [SerializeField]
+    [Tooltip("0 - is vertical, 1 is horizontal")]
+    [Range(0,1)]
+    private float _wallJumpDirection = 0.3f;
+
+    [SerializeField]
+    private ActiveTrigger _floorTrigger;
+    [SerializeField]
+    private ActiveTrigger _leftTrigger;
+    [SerializeField]
+    private ActiveTrigger _rightTrigger;
 
     [Header("Move")]
     [SerializeField]
     private float _maxSpeed = 2f;
     private bool _isJumping = false; 
+    private bool _isOnWall, _isLeftWall = false;
 
     void Awake()
     {
@@ -45,11 +61,17 @@ public class PlayerController : MonoBehaviour
     }
 
     void FixedUpdate() {
-        _isJumping = !_jumpTrigger.IsActive();
+        _isJumping = !_floorTrigger.IsActive();
+        _isLeftWall = _leftTrigger.IsActive();
+        _isOnWall = (_rightTrigger.IsActive() || _leftTrigger.IsActive()) 
+                    && (_isLeftWall ? _inX < 0 : _inX > 0)
+                    && _isJumping;
+
         if (CanJump()) {
             Jump();
         }
         BetterJump();
+        OnWall();
         Move();
         _inJumpDown = false;
         UpdateAnimator();
@@ -73,30 +95,53 @@ public class PlayerController : MonoBehaviour
 
     private void BetterJump()
     {
+        if(_isOnWall) return;
         if (_rb.velocity.y < 0) {
-            _rb.AddForce(Vector2.up * Physics2D.gravity.y * (_fallMultiplier - 1));
+			_rb.velocity += Vector2.up * Physics.gravity.y * (_fallMultiplier - 1) * Time.fixedDeltaTime;
         } else if (_rb.velocity.y > 0 && !_inJump) {
-            _rb.AddForce(Vector2.up * Physics2D.gravity.y * (_lowJumpMultiplier - 1));
+			_rb.velocity += Vector2.up * Physics.gravity.y * (_lowJumpMultiplier - 1) * Time.fixedDeltaTime;
+        }
+    }
+
+    private void OnWall()
+    {
+        if (!_isOnWall) return;
+        if (_rb.velocity.y < 0) {
+			_rb.velocity = Vector2.up * Physics.gravity.y * (_wallSlideMultiplier - 1) * Time.fixedDeltaTime;
+        }
+        if (_inJumpDown) {
+            _wallJumpTime = Time.time;
+            Vector2 jumpDirection = Vector2.Lerp(Vector2.up, (_isLeftWall ? Vector2.right : Vector2.left), _wallJumpDirection);
+            Debug.DrawRay(_rb.position, jumpDirection);
+            _rb.velocity = jumpDirection.normalized * _jumpVelocity;
         }
     }
 
     private void UpdateSprite()
     {
-        if (_rb.velocity.x < 0) { 
-            _sr.flipX = true;
-        } else if (_rb.velocity.x > 0) { 
-            _sr.flipX = false;
+        if (!CanMoveAfterWalljump()) return;
+        if (_inX < 0) { 
+            _sr.flipX = true && !_isOnWall;
+        } else if (_inX > 0) { 
+            _sr.flipX = false || _isOnWall;
         }
     }
 
     private void Move()
     {
+        if (!CanMoveAfterWalljump()) return;
         _rb.velocity = new Vector2(_inX * _maxSpeed, _rb.velocity.y);
+    }
+
+    private bool CanMoveAfterWalljump()
+    {
+        return Time.time - _wallJumpTime > _wallJumpMoveDelay;
     }
 
     private void UpdateAnimator()
     {
         _animator.SetBool("is_jumping", _isJumping);
         _animator.SetFloat("speed", _rb.velocity.magnitude);
+        _animator.SetBool("is_on_wall", _isOnWall);
     }
 }

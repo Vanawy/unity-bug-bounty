@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
+[ExecuteInEditMode]
 public class ActiveTrigger : MonoBehaviour
 {
     private bool _isTriggerActive = false;
+    private Collider2D _collider;
+    private void Awake() {
+        _collider = GetComponent<Collider2D>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other) {
         _isTriggerActive = true;
@@ -17,5 +22,10 @@ public class ActiveTrigger : MonoBehaviour
     public bool IsActive()
     {
         return _isTriggerActive;
+    }
+
+    private void OnDrawGizmos() {
+        Gizmos.color = _isTriggerActive ? Color.green : Color.red;
+        Gizmos.DrawCube(_collider.bounds.center, _collider.bounds.size);
     }
 }
