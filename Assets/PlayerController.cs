@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
@@ -43,8 +44,11 @@ public class PlayerController : MonoBehaviour
     [Header("Move")]
     [SerializeField]
     private float _maxSpeed = 2f;
+    [SerializeField]
+    private Text _speedText;
     private bool _isJumping = false; 
     private bool _isOnWall, _isLeftWall = false;
+
 
     void Awake()
     {
@@ -79,6 +83,7 @@ public class PlayerController : MonoBehaviour
 
     void LateUpdate() {
         UpdateSprite();
+        UpdateSpeedText();
     }
 
     private bool CanJump()
@@ -125,6 +130,14 @@ public class PlayerController : MonoBehaviour
         } else if (_inX > 0) { 
             _sr.flipX = false || _isOnWall;
         }
+    }
+
+    private void UpdateSpeedText()
+    {
+        _speedText.text = string.Format("{0} {1}", 
+            (int) Mathf.Abs(_rb.velocity.x), 
+            (int) Mathf.Abs(_rb.velocity.y)
+        );
     }
 
     private void Move()

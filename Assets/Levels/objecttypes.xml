@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objecttypes>
+ <objecttype name="bug_blue" color="#55ffff">
+  <property name="SetLayer" type="string" default="Objectives"/>
+ </objecttype>
+ <objecttype name="bug_yellow" color="#ffff00">
+  <property name="SetLayer" type="string" default="Objectives"/>
+ </objecttype>
+ <objecttype name="enemy" color="#ff0000">
+  <property name="SetLayer" type="string" default="Enemies"/>
+ </objecttype>
+ <objecttype name="ground" color="#aa5500"/>
+ <objecttype name="player_spawn" color="#00ff7f"/>
+</objecttypes>

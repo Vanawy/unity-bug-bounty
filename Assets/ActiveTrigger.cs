@@ -24,8 +24,8 @@ public class ActiveTrigger : MonoBehaviour
         return _isTriggerActive;
     }
 
-    private void OnDrawGizmos() {
+    private void OnDrawGizmosSelected() {
         Gizmos.color = _isTriggerActive ? Color.green : Color.red;
-        Gizmos.DrawCube(_collider.bounds.center, _collider.bounds.size);
+        Gizmos.DrawWireCube(_collider.bounds.center, _collider.bounds.size);
     }
 }
