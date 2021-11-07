@@ -134,9 +134,9 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateSpeedText()
     {
-        _speedText.text = string.Format("{0} {1}", 
-            (int) Mathf.Abs(_rb.velocity.x), 
-            (int) Mathf.Abs(_rb.velocity.y)
+        _speedText.text = string.Format("{0:F2} {1:F2}", 
+            Mathf.Abs(_rb.velocity.x), 
+            Mathf.Abs(_rb.velocity.y)
         );
     }
 

@@ -2,9 +2,11 @@
 <objecttypes>
  <objecttype name="bug_blue" color="#55ffff">
   <property name="SetLayer" type="string" default="Objectives"/>
+  <property name="SetType" type="string" default="blue"/>
  </objecttype>
  <objecttype name="bug_yellow" color="#ffff00">
   <property name="SetLayer" type="string" default="Objectives"/>
+  <property name="SetType" type="string" default="yellow"/>
  </objecttype>
  <objecttype name="enemy" color="#ff0000">
   <property name="SetLayer" type="string" default="Enemies"/>

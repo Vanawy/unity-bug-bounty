@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 7091602290396203742}
   - component: {fileID: 6777226749846464202}
   - component: {fileID: 1121485508121883200}
+  - component: {fileID: 3396712424346783757}
   m_Layer: 0
-  m_Name: YellowBug
+  m_Name: Bug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,6 +72,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16215c1a8796ef7428ced74081279974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3396712424346783757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7889529184889592549}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac77ecfe8d72c70449584b30d3e889b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 0
+  _animator: {fileID: 6836999533120650668}
+  _sr: {fileID: 2580197343551939555}
 --- !u!1 &8302893407378548978
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,7 +180,7 @@ Animator:
   m_GameObject: {fileID: 8302893407378548978}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2c5d9ec433e3cef4ea79c59d8612b556, type: 2}
+  m_Controller: {fileID: 9100000, guid: ac3b289ad758dc242b87030af894b4a9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

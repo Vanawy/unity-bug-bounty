@@ -188,6 +188,18 @@ TextureImporter:
   - first:
       213: 4268319000540810990
     second: tilemap_packed_61
+  - first:
+      213: -8033118869560179231
+    second: tilemap_packed_62
+  - first:
+      213: 2634133814080737943
+    second: tilemap_packed_63
+  - first:
+      213: -2779089278662059567
+    second: tilemap_packed_64
+  - first:
+      213: 5651163114573580929
+    second: tilemap_packed_65
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -1586,6 +1598,90 @@ TextureImporter:
       bones: []
       spriteID: eee0947348d1c3b30800000000000000
       internalID: 4268319000540810990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap_packed_62
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e5c06d03f0a48090800000000000000
+      internalID: -8033118869560179231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap_packed_63
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79290276fb25e8420800000000000000
+      internalID: 2634133814080737943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap_packed_64
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d9504a7601be69d0800000000000000
+      internalID: -2779089278662059567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap_packed_65
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18ac2fb59e6fc6e40800000000000000
+      internalID: 5651163114573580929
       vertices: []
       indices: 
       edges: []

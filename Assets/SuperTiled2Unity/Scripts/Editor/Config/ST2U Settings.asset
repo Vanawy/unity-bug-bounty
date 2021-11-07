@@ -57,15 +57,27 @@ MonoBehaviour:
   - m_Name: bug_blue
     m_Color: {r: 0.33333334, g: 1, b: 1, a: 1}
     m_CustomProperties:
-    - m_Name: test
-      m_Type: bool
-      m_Value: true
+    - m_Name: SetLayer
+      m_Type: string
+      m_Value: Objectives
+    - m_Name: SetType
+      m_Type: string
+      m_Value: blue
   - m_Name: bug_yellow
     m_Color: {r: 1, g: 1, b: 0, a: 1}
-    m_CustomProperties: []
+    m_CustomProperties:
+    - m_Name: SetLayer
+      m_Type: string
+      m_Value: Objectives
+    - m_Name: SetType
+      m_Type: string
+      m_Value: yellow
   - m_Name: enemy
     m_Color: {r: 1, g: 0, b: 0, a: 1}
-    m_CustomProperties: []
+    m_CustomProperties:
+    - m_Name: SetLayer
+      m_Type: string
+      m_Value: Enemies
   - m_Name: ground
     m_Color: {r: 0.6666667, g: 0.33333334, b: 0, a: 1}
     m_CustomProperties: []
@@ -74,7 +86,7 @@ MonoBehaviour:
     m_CustomProperties: []
   m_PrefabReplacements:
   - m_TypeName: bug_blue
-    m_Prefab: {fileID: 0}
+    m_Prefab: {fileID: 7889529184889592549, guid: f0f6e1272f29e4349878189cf2ebb941, type: 3}
   - m_TypeName: bug_yellow
     m_Prefab: {fileID: 7889529184889592549, guid: f0f6e1272f29e4349878189cf2ebb941, type: 3}
   - m_TypeName: enemy
