@@ -3,7 +3,8 @@
  <image source="Sprites/tilemap_packed.png" width="160" height="112"/>
  <tile id="3">
   <objectgroup draworder="index" id="3">
-   <object id="2" type="ground" x="1" y="0" width="15" height="16"/>
+   <object id="2" type="ground" x="1" y="0" width="15" height="4"/>
+   <object id="4" type="ground" x="1" y="0" width="2" height="16"/>
   </objectgroup>
  </tile>
  <tile id="4">
@@ -13,7 +14,8 @@
  </tile>
  <tile id="5">
   <objectgroup draworder="index" id="2">
-   <object id="1" type="ground" x="0" y="0" width="15" height="16"/>
+   <object id="1" type="ground" x="0" y="0" width="15" height="4"/>
+   <object id="2" type="ground" x="13" y="0" width="2" height="16"/>
   </objectgroup>
  </tile>
  <tile id="6">
@@ -38,22 +40,22 @@
  </tile>
  <tile id="13">
   <objectgroup draworder="index" id="2">
-   <object id="2" type="ground" x="1" y="0" width="7" height="16"/>
+   <object id="2" type="ground" x="1" y="0" width="2" height="16"/>
   </objectgroup>
  </tile>
  <tile id="15">
   <objectgroup draworder="index" id="2">
-   <object id="1" type="ground" x="8" y="0" width="7" height="16"/>
+   <object id="1" type="ground" x="13" y="0" width="2" height="16"/>
   </objectgroup>
  </tile>
  <tile id="16">
   <objectgroup draworder="index" id="2">
-   <object id="1" type="ground" x="1" y="0" width="3" height="16"/>
+   <object id="1" type="ground" x="1" y="0" width="2" height="16"/>
   </objectgroup>
  </tile>
  <tile id="18">
   <objectgroup draworder="index" id="2">
-   <object id="1" type="ground" x="12" y="0" width="3" height="16"/>
+   <object id="1" type="ground" x="13" y="0" width="2" height="16"/>
   </objectgroup>
  </tile>
  <tile id="19">
@@ -78,22 +80,22 @@
  </tile>
  <tile id="23">
   <objectgroup draworder="index" id="2">
-   <object id="1" type="ground" x="0" y="0" width="8" height="8"/>
+   <object id="1" type="ground" x="0" y="0" width="3" height="4"/>
   </objectgroup>
  </tile>
  <tile id="24">
   <objectgroup draworder="index" id="2">
-   <object id="1" type="ground" x="8" y="0" width="8" height="8"/>
+   <object id="1" type="ground" x="13" y="0" width="3" height="4"/>
   </objectgroup>
  </tile>
  <tile id="25">
   <objectgroup draworder="index" id="2">
-   <object id="1" type="ground" x="0" y="0" width="8" height="8"/>
+   <object id="1" type="ground" x="0" y="0" width="3" height="4"/>
   </objectgroup>
  </tile>
  <tile id="26">
   <objectgroup draworder="index" id="2">
-   <object id="1" type="ground" x="8" y="0" width="8" height="8"/>
+   <object id="1" type="ground" x="13" y="0" width="3" height="4"/>
   </objectgroup>
  </tile>
  <tile id="27">

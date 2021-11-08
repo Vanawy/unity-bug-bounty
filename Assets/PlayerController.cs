@@ -44,8 +44,6 @@ public class PlayerController : MonoBehaviour
     [Header("Move")]
     [SerializeField]
     private float _maxSpeed = 2f;
-    [SerializeField]
-    private Text _speedText;
     private bool _isJumping = false; 
     private bool _isOnWall, _isLeftWall = false;
 
@@ -83,7 +81,6 @@ public class PlayerController : MonoBehaviour
 
     void LateUpdate() {
         UpdateSprite();
-        UpdateSpeedText();
     }
 
     private bool CanJump()
@@ -130,14 +127,6 @@ public class PlayerController : MonoBehaviour
         } else if (_inX > 0) { 
             _sr.flipX = false || _isOnWall;
         }
-    }
-
-    private void UpdateSpeedText()
-    {
-        _speedText.text = string.Format("{0:F2} {1:F2}", 
-            Mathf.Abs(_rb.velocity.x), 
-            Mathf.Abs(_rb.velocity.y)
-        );
     }
 
     private void Move()

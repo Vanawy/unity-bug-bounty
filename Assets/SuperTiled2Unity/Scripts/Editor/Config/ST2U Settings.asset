@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff72ddc2da234e244a8e96eb44e4c03d, type: 3}
   m_Name: ST2U Settings
   m_EditorClassIdentifier: 
-  m_PixelsPerUnit: 100
+  m_PixelsPerUnit: 16
   m_EdgesPerEllipse: 32
   m_AnimationFramerate: 20
   m_DefaultMaterial: {fileID: 0}
@@ -90,7 +90,7 @@ MonoBehaviour:
   - m_TypeName: bug_yellow
     m_Prefab: {fileID: 7889529184889592549, guid: f0f6e1272f29e4349878189cf2ebb941, type: 3}
   - m_TypeName: enemy
-    m_Prefab: {fileID: 0}
+    m_Prefab: {fileID: 3837965164221460007, guid: 19f1aafbe5d162842a474608a592901f, type: 3}
   - m_TypeName: ground
     m_Prefab: {fileID: 0}
   - m_TypeName: player_spawn
