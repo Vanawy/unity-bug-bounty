@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        _rb.velocity += Vector2.up * _jumpVelocity;
+        _rb.AddForce(Vector2.up * _jumpVelocity, ForceMode2D.Impulse);
     }
 
     private void BetterJump()
