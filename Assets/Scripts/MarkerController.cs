@@ -17,6 +17,11 @@ public class MarkerController : MonoBehaviour
 
     void Update()
     {
+        if (parent == null || target == null) {
+            _sr.enabled = false;
+            this.enabled = false;
+            return;
+        }
         _markerBase.position = parent.position;
         float angle = Vector2.SignedAngle(Vector2.right, target.position - parent.position);
         _markerBase.eulerAngles = new Vector3(0, 0, angle);

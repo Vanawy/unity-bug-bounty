@@ -35,6 +35,7 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Text _timer;
     private float _startLevelTime;
+    private float _endLevelTime = -1f;
 
     void Awake()
     {
@@ -42,9 +43,10 @@ public class GameController : MonoBehaviour
         _vcam.m_Follow = player.transform;
 
         PlayerDeath playerDeath = player.gameObject.GetComponent<PlayerDeath>();
-        if (playerDeath != null) {
-            playerDeath.OnRestart += RestartLevel;
-        }
+        playerDeath.OnRestart += RestartLevel;
+
+        ObjectiveCollector collector = player.gameObject.GetComponent<ObjectiveCollector>(); 
+        collector.OnCollect += TakeObjective;
 
         _startLevelTime = Time.time;
         _objectives = _objects.GetComponentsInChildren<ObjectiveController>();
@@ -85,15 +87,48 @@ public class GameController : MonoBehaviour
         _blueCounter.text = string.Format("{0}/{1}", _blueCollected, _blueTotal);
     }
     
-    public void RestartLevel()
+    private void RestartLevel()
     {
-        Debug.Log("Restart level here");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void UpdateTimer()
+    private void TakeObjective(ObjectiveController objective)
     {
-        TimeSpan timeSpan = TimeSpan.FromSeconds(Time.time - _startLevelTime);
-        _timer.text = string.Format("{0:D2}:{1:D2}:{2:D3}", (int) timeSpan.TotalMinutes, timeSpan.Seconds, timeSpan.Milliseconds);
+        switch (objective.type)
+        {
+            case ObjectiveType.YELLOW:
+                _yellowCollected++;
+                break;
+            case ObjectiveType.BLUE:
+                _blueCollected++;
+                break;
+            default:
+                _yellowCollected++;
+                break;
+        }
+        Destroy(objective.gameObject);
+
+        if (_blueCollected == _blueTotal && _yellowCollected == _yellowTotal) {
+            AllObjectivesCollected();
+        }
+    }
+
+    private void UpdateTimer()
+    {
+        float currentTime;
+        if (_endLevelTime > 0) {
+            currentTime = _endLevelTime;
+        } else {
+            currentTime = Time.time;
+        }
+        TimeSpan timeSpan = TimeSpan.FromSeconds(currentTime - _startLevelTime);
+        _timer.text = FormatHelper.FormatTimeSpan(timeSpan);
+    }
+
+    private void AllObjectivesCollected()
+    {
+        _endLevelTime = Time.time;
+        TimeSpan time = TimeSpan.FromSeconds(_endLevelTime - _startLevelTime);
+        Debug.Log(string.Format("All objectives collected in {0}", FormatHelper.FormatTimeSpan(time)));
     }
 }

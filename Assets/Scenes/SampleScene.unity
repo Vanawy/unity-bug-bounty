@@ -230,7 +230,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 454571561}
-  - {fileID: 1792341030}
   - {fileID: 279727916}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -299,7 +298,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 99880664}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &401870216
 GameObject:
@@ -634,7 +633,7 @@ MonoBehaviour:
   - {fileID: 2634133814080737943, guid: 7f8b52e6c2297da4b8cd020ce1f9bb41, type: 3}
   _yellowCounter: {fileID: 61163045}
   _blueCounter: {fileID: 1380283874}
-  _timer: {fileID: 0}
+  _timer: {fileID: 1476024692}
 --- !u!4 &831160974
 Transform:
   m_ObjectHideFlags: 0
@@ -1100,49 +1099,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &1792341029
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1792341030}
-  - component: {fileID: 1792341031}
-  m_Layer: 0
-  m_Name: UiController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1792341030
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1792341029}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 99880664}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1792341031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1792341029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b3f0b11fe938f545abcbb17172dc398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &5308389558350501880

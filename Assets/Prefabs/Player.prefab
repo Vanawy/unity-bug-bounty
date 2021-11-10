@@ -81,6 +81,7 @@ GameObject:
   - component: {fileID: 5071549337909290044}
   - component: {fileID: 5071549337909290043}
   - component: {fileID: 3027941592328122933}
+  - component: {fileID: 5738489809417173656}
   - component: {fileID: 5071549337909290045}
   - component: {fileID: 5071549337909290046}
   - component: {fileID: 5071549337909290042}
@@ -147,6 +148,21 @@ MonoBehaviour:
   _cantTouchThis:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &5738489809417173656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5071549337909290047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5184223b619a6040a8539e46d3275b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectiveLayer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!212 &5071549337909290045
 SpriteRenderer:
   m_ObjectHideFlags: 0
