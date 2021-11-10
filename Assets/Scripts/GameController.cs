@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using SuperTiled2Unity;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameController : MonoBehaviour
 {
@@ -31,6 +32,9 @@ public class GameController : MonoBehaviour
     private Text _yellowCounter;
     [SerializeField]
     private Text _blueCounter;
+    [SerializeField]
+    private Text _timer;
+    private float _startLevelTime;
 
     void Awake()
     {
@@ -42,6 +46,7 @@ public class GameController : MonoBehaviour
             playerDeath.OnRestart += RestartLevel;
         }
 
+        _startLevelTime = Time.time;
         _objectives = _objects.GetComponentsInChildren<ObjectiveController>();
 
         foreach (var objective in _objectives)
@@ -71,6 +76,7 @@ public class GameController : MonoBehaviour
     void Update()
     {
         UpdateCounters();
+        UpdateTimer();
     }
 
     private void UpdateCounters()
@@ -83,5 +89,11 @@ public class GameController : MonoBehaviour
     {
         Debug.Log("Restart level here");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void UpdateTimer()
+    {
+        TimeSpan timeSpan = TimeSpan.FromSeconds(Time.time - _startLevelTime);
+        _timer.text = string.Format("{0:D2}:{1:D2}:{2:D3}", (int) timeSpan.TotalMinutes, timeSpan.Seconds, timeSpan.Milliseconds);
     }
 }
