@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using SuperTiled2Unity;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class GameController : MonoBehaviour
     private SuperObjectLayer _objects;
 
     [SerializeField]
-    private CameraFollow _camera;
+    private Cinemachine.CinemachineVirtualCamera _vcam;
     [Header("Markers Settings")]
     [SerializeField]
     private GameObject _markerPrefab;
@@ -34,7 +35,13 @@ public class GameController : MonoBehaviour
     void Awake()
     {
         PlayerController player = _objects.GetComponentInChildren<PlayerController>();
-        _camera.SetTarget(player.transform);
+        _vcam.m_Follow = player.transform;
+
+        PlayerDeath playerDeath = player.gameObject.GetComponent<PlayerDeath>();
+        if (playerDeath != null) {
+            playerDeath.OnRestart += RestartLevel;
+        }
+
         _objectives = _objects.GetComponentsInChildren<ObjectiveController>();
 
         foreach (var objective in _objectives)
@@ -70,5 +77,11 @@ public class GameController : MonoBehaviour
     {
         _yellowCounter.text = string.Format("{0}/{1}", _yellowCollected, _yellowTotal);
         _blueCounter.text = string.Format("{0}/{1}", _blueCollected, _blueTotal);
+    }
+    
+    public void RestartLevel()
+    {
+        Debug.Log("Restart level here");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

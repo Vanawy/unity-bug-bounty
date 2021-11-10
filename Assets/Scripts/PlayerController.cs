@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
     private bool CanJump()
     {
         if (_isJumping) return false;
-        if (_inJumpDown) return true;
+        if (_inJump) return true;
         return false;
     }
 
@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
         if (_rb.velocity.y < 0) {
 			_rb.velocity = Vector2.up * Physics.gravity.y * (_wallSlideMultiplier - 1) * Time.fixedDeltaTime;
         }
-        if (_inJumpDown) {
+        if (_inJump) {
             _wallJumpTime = Time.time;
             Vector2 jumpDirection = Vector2.Lerp(Vector2.up, (_isLeftWall ? Vector2.right : Vector2.left), _wallJumpDirection);
             Debug.DrawRay(_rb.position, jumpDirection);
