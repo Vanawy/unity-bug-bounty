@@ -8,7 +8,7 @@ using System;
 
 public class GameController : MonoBehaviour
 {
-
+    [Header("Level")]
     [SerializeField]
     private SuperObjectLayer _objects;
 

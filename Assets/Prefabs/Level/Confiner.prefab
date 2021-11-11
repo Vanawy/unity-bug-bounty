@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2880805604895259089}
   - component: {fileID: 2880805604895259088}
   m_Layer: 5
-  m_Name: LevelBounds
+  m_Name: Confiner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

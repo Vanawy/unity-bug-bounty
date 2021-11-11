@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpVelocity: 10
-  _fallMultiplier: 2.5
+  _fallMultiplier: 3.5
   _lowJumpMultiplier: 2
   _wallSlideMultiplier: 0.7
   _wallJumpMoveDelay: 0.5
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cantTouchThis:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 8448
 --- !u!114 &5738489809417173656
 MonoBehaviour:
   m_ObjectHideFlags: 0
