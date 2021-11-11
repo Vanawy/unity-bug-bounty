@@ -3,12 +3,23 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "C:/Users/HAFF/BugBounty/Assets/Levels/Tutorial/t01.tmx",
+    "activeFile": "A/a01.tmx",
     "expandedProjectPaths": [
-        "E:/Tiled"
+        "E:/Tiled",
+        "C:/Users/HAFF/BugBounty/Assets",
+        ".",
+        "A"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
+        "A/a01.tmx": {
+            "scale": 1.1083333333333334,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 384.812030075188,
+                "y": 383.4586466165413
+            }
+        },
         "C:/Users/HAFF/BugBounty/Assets/Levels/A/a01.tmx": {
             "scale": 1,
             "selectedLayer": 1,
@@ -79,7 +90,8 @@
             }
         },
         "tilemap.tsx": {
-            "dynamicWrapping": false
+            "dynamicWrapping": false,
+            "scaleInDock": 1
         }
     },
     "last.externalTilesetPath": "C:/Users/HAFF/BugBounty/Assets/TiledResources",
@@ -91,12 +103,12 @@
     "map.tileWidth": 16,
     "map.width": 48,
     "openFiles": [
-        "C:/Users/HAFF/BugBounty/Assets/tilemap.tsx",
-        "C:/Users/HAFF/BugBounty/Assets/Levels/Tutorial/t01.tmx"
+        "A/a01.tmx"
     ],
     "project": "BugBounty.tiled-project",
     "property.type": "string",
     "recentFiles": [
+        "A/a01.tmx",
         "C:/Users/HAFF/BugBounty/Assets/tilemap.tsx",
         "C:/Users/HAFF/BugBounty/Assets/Levels/Tutorial/t01.tmx",
         "C:/Users/HAFF/BugBounty/Assets/t01.tmx",

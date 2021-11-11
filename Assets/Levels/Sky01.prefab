@@ -101,6 +101,14 @@ PrefabInstance:
       value: a01
       objectReference: {fileID: 0}
     - target: {fileID: 3650506112850941600, guid: cd5f89edd92122d4ba62cec3cc30671f, type: 3}
+      propertyPath: _bulletPrefab
+      value: 
+      objectReference: {fileID: 8312834156365998496, guid: d4b99c8294c01f444b516efc10ee4169, type: 3}
+    - target: {fileID: 3650506112850941600, guid: cd5f89edd92122d4ba62cec3cc30671f, type: 3}
+      propertyPath: _shootingRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650506112850941600, guid: cd5f89edd92122d4ba62cec3cc30671f, type: 3}
       propertyPath: _fallMultiplier
       value: 2.5
       objectReference: {fileID: 0}

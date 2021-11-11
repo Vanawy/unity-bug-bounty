@@ -71,15 +71,13 @@ public class PlayerController : MonoBehaviour
         _isOnWall = (_rightTrigger.IsActive() || _leftTrigger.IsActive()) 
                     && (_isLeftWall ? _inputX < 0 : _inputX > 0)
                     && _isJumping;
-
-        if (CanJump()) {
-            Jump();
-        }
+        Jump();
         BetterJump();
         OnWall();
         Move();
         _inputJumpDown = false;
         UpdateAnimator();
+        Debug.DrawRay(transform.position, _rb.velocity, Color.magenta);
     }
 
     void LateUpdate() {
@@ -95,7 +93,7 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        if (!CanJumpAgain()) return;
+        if (!CanJumpAgain() || !CanJump()) return;
         _rb.AddForce(Vector2.up * _jumpVelocity, ForceMode2D.Impulse);
     }
 
@@ -104,10 +102,8 @@ public class PlayerController : MonoBehaviour
         if(_isOnWall) return;
         if (_rb.velocity.y < 0) {
 			_rb.AddForce(Physics.gravity * (_fallMultiplier - 1));
-            Debug.DrawRay(transform.position, Physics.gravity * (_fallMultiplier - 1), Color.red);
         } else if (_rb.velocity.y > 0 && _inputJump) {
 			_rb.AddForce(Physics.gravity * (_lowJumpMultiplier - 1));
-            Debug.DrawRay(transform.position, Physics.gravity * (_lowJumpMultiplier - 1), Color.green);
         }
     }
 
@@ -120,8 +116,9 @@ public class PlayerController : MonoBehaviour
         if (_inputJump) {
             _lastWallJumpTime = Time.time;
             Vector2 jumpDirection = Vector2.Lerp(Vector2.up, (_isLeftWall ? Vector2.right : Vector2.left), _wallJumpDirection);
-            Debug.DrawRay(_rb.position, jumpDirection);
-            _rb.velocity = jumpDirection.normalized * _jumpVelocity;
+            
+            _rb.velocity = Vector2.zero;
+            _rb.AddForce(jumpDirection.normalized * _jumpVelocity, ForceMode2D.Impulse);
         }
     }
 
