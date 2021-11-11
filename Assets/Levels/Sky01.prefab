@@ -100,6 +100,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: a01
       objectReference: {fileID: 0}
+    - target: {fileID: 3650506112850941600, guid: cd5f89edd92122d4ba62cec3cc30671f, type: 3}
+      propertyPath: _fallMultiplier
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5606665665657014033, guid: cd5f89edd92122d4ba62cec3cc30671f, type: 3}
       propertyPath: m_CollisionDetection
       value: 1

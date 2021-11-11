@@ -1,0 +1,118 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "C:/Users/HAFF/BugBounty/Assets/Levels/Tutorial/t01.tmx",
+    "expandedProjectPaths": [
+        "E:/Tiled"
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "C:/Users/HAFF/BugBounty/Assets/Levels/A/a01.tmx": {
+            "scale": 1,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 410.5,
+                "y": 393
+            }
+        },
+        "C:/Users/HAFF/BugBounty/Assets/Levels/Tutorial/t01.tmx": {
+            "scale": 3,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 1723.1666666666665,
+                "y": 405.66666666666663
+            }
+        },
+        "C:/Users/HAFF/BugBounty/Assets/t01.tmx": {
+            "scale": 3,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 1600.8333333333333,
+                "y": 439.66666666666663
+            }
+        },
+        "C:/Users/HAFF/BugBounty/Assets/tilemap.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 2,
+            "scaleInEditor": 4
+        },
+        "C:/Users/HAFF/DogFight/Assets/Tilemap/dogfight.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/HAFF/DogFight/Assets/Tilemap/home.tmx": {
+            "scale": 3,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 811,
+                "y": 966.6666666666666
+            }
+        },
+        "C:/Users/HAFF/My project (1)/Assets/test.tmx": {
+            "scale": 0.75,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 540,
+                "y": 534.6666666666666
+            }
+        },
+        "C:/Users/HAFF/My project (1)/Assets/tilemap.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 5.5
+        },
+        "C:/Users/HAFF/My project (1)/Assets/tiles_packed.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "E:/Tiled/dogfight.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "E:/Tiled/home.tmx": {
+            "scale": 3,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 847,
+                "y": 907.9999999999999
+            }
+        },
+        "tilemap.tsx": {
+            "dynamicWrapping": false
+        }
+    },
+    "last.externalTilesetPath": "C:/Users/HAFF/BugBounty/Assets/TiledResources",
+    "last.imagePath": "C:/Users/HAFF/BugBounty/Assets/Sprites",
+    "last.objectTypesPath": "C:/Users/HAFF/BugBounty/Assets/TiledResources/objecttypes.xml",
+    "map.height": 48,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 48,
+    "openFiles": [
+        "C:/Users/HAFF/BugBounty/Assets/tilemap.tsx",
+        "C:/Users/HAFF/BugBounty/Assets/Levels/Tutorial/t01.tmx"
+    ],
+    "project": "BugBounty.tiled-project",
+    "property.type": "string",
+    "recentFiles": [
+        "C:/Users/HAFF/BugBounty/Assets/tilemap.tsx",
+        "C:/Users/HAFF/BugBounty/Assets/Levels/Tutorial/t01.tmx",
+        "C:/Users/HAFF/BugBounty/Assets/t01.tmx",
+        "C:/Users/HAFF/My project (1)/Assets/tilemap.tsx",
+        "C:/Users/HAFF/My project (1)/Assets/test.tmx",
+        "C:/Users/HAFF/My project (1)/Assets/tiles_packed.tsx",
+        "C:/Users/HAFF/DogFight/Assets/Tilemap/home.tmx",
+        "C:/Users/HAFF/DogFight/Assets/Tilemap/dogfight.tsx",
+        "E:/Tiled/dogfight.tsx",
+        "E:/Tiled/home.tmx"
+    ],
+    "tileset.lastUsedFilter": "All Files (*)",
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    },
+    "tileset.type": 0
+}
