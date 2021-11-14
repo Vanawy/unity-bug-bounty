@@ -5,19 +5,19 @@
     },
     "activeFile": "A/a01.tmx",
     "expandedProjectPaths": [
-        "A",
         "E:/Tiled",
         ".",
+        "A",
         "C:/Users/HAFF/BugBounty/Assets"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
         "A/a01.tmx": {
-            "scale": 1.1083333333333334,
-            "selectedLayer": 3,
+            "scale": 1,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 385.7142857142857,
-                "y": 383.4586466165413
+                "x": 408.5,
+                "y": 329
             }
         },
         "C:/Users/HAFF/BugBounty/Assets/Levels/A/a01.tmx": {

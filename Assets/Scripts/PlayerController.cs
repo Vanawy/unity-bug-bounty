@@ -4,6 +4,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Collider2D))]
 public class PlayerController : MonoBehaviour
 {
     private float _inputY = 0, _inputX = 0;
@@ -12,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
     private Animator _animator;
     private SpriteRenderer _sr;
+    private Collider2D _collider;
 
     [Header("Jump")]
     [SerializeField]
@@ -62,6 +64,7 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _sr = GetComponent<SpriteRenderer>();
+        _collider = GetComponent<Collider2D>();
     }
     void Update()
     {
@@ -165,12 +168,10 @@ public class PlayerController : MonoBehaviour
 
     private void CreateJumpEffect()
     {
-        Vector2 v = _rb.velocity;
-        Debug.DrawRay(transform.position, -_rb.velocity);
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -_rb.velocity, float.PositiveInfinity, _obstacles);
+        RaycastHit2D hit = Physics2D.BoxCast(_collider.bounds.center, _collider.bounds.size, 0, -_rb.velocity, 1, _obstacles);
+        if (!hit) return;
         float angle = Vector2.SignedAngle(hit.normal, Vector2.left);
         ParticleSystem jump = Instantiate<ParticleSystem>(_jumpEffect, hit.point, Quaternion.Euler(-90, 0, angle + 90));
-        Debug.DrawRay(hit.point, hit.normal);
         jump.Play();
     }
 }
