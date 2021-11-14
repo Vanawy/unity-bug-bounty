@@ -50,6 +50,12 @@ public class PlayerController : MonoBehaviour
     private bool _isJumping = false; 
     private bool _isOnWall, _isLeftWall = false;
 
+    [Header("Effects")]
+    [SerializeField]
+    private ParticleSystem _jumpEffect;
+    [SerializeField]
+    private LayerMask _obstacles;
+
 
     void Awake()
     {
@@ -95,6 +101,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!CanJumpAgain() || !CanJump()) return;
         _rb.AddForce(Vector2.up * _jumpVelocity, ForceMode2D.Impulse);
+        CreateJumpEffect();
     }
 
     private void BetterJump()
@@ -119,6 +126,7 @@ public class PlayerController : MonoBehaviour
             
             _rb.velocity = Vector2.zero;
             _rb.AddForce(jumpDirection.normalized * _jumpVelocity, ForceMode2D.Impulse);
+            CreateJumpEffect();
         }
     }
 
@@ -153,5 +161,16 @@ public class PlayerController : MonoBehaviour
         _animator.SetBool("is_jumping", _isJumping);
         _animator.SetFloat("speed", _rb.velocity.magnitude);
         _animator.SetBool("is_on_wall", _isOnWall);
+    }
+
+    private void CreateJumpEffect()
+    {
+        Vector2 v = _rb.velocity;
+        Debug.DrawRay(transform.position, -_rb.velocity);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -_rb.velocity, float.PositiveInfinity, _obstacles);
+        float angle = Vector2.SignedAngle(hit.normal, Vector2.left);
+        ParticleSystem jump = Instantiate<ParticleSystem>(_jumpEffect, hit.point, Quaternion.Euler(-90, 0, angle + 90));
+        Debug.DrawRay(hit.point, hit.normal);
+        jump.Play();
     }
 }

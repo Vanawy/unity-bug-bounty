@@ -126,7 +126,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3650506112850941600, guid: cd5f89edd92122d4ba62cec3cc30671f, type: 3}
       propertyPath: _fallMultiplier
-      value: 2.5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650506112850941600, guid: cd5f89edd92122d4ba62cec3cc30671f, type: 3}
+      propertyPath: _obstacles.m_Bits
+      value: 320
       objectReference: {fileID: 0}
     - target: {fileID: 5606665665657014033, guid: cd5f89edd92122d4ba62cec3cc30671f, type: 3}
       propertyPath: m_CollisionDetection
