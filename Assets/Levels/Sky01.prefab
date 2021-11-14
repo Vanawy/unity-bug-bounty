@@ -92,6 +92,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2990962492694969822, guid: cd5f89edd92122d4ba62cec3cc30671f, type: 3}
+      propertyPath: _checkDistance
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: -2528886961566928400, guid: cd5f89edd92122d4ba62cec3cc30671f, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -99,6 +103,18 @@ PrefabInstance:
     - target: {fileID: -1662424138378897886, guid: cd5f89edd92122d4ba62cec3cc30671f, type: 3}
       propertyPath: m_Name
       value: a01
+      objectReference: {fileID: 0}
+    - target: {fileID: -509729199305962684, guid: cd5f89edd92122d4ba62cec3cc30671f, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 820505105373137517, guid: cd5f89edd92122d4ba62cec3cc30671f, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 820505105373137517, guid: cd5f89edd92122d4ba62cec3cc30671f, type: 3}
+      propertyPath: nextWaypointDistance
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3650506112850941600, guid: cd5f89edd92122d4ba62cec3cc30671f, type: 3}
       propertyPath: _bulletPrefab
