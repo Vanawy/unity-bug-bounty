@@ -52,12 +52,18 @@ public class SlimeAI : MonoBehaviour {
     {
         Vector2 dir = _isMovingLeft ? Vector2.left : Vector2.right;
 
-        RaycastHit2D obstacleHit = Physics2D.BoxCast((Vector2) _collider.bounds.center + _groundCheckDistance * dir, Vector3.one * 0.1f, 0, dir, _maxHeight, _obstaclelayer);
+        RaycastHit2D obstacleHit = Physics2D.BoxCast(
+            (Vector2) _collider.bounds.center + _groundCheckDistance * dir, 
+            Vector3.one * 0.1f, 0, dir, _maxHeight, _obstaclelayer
+        );
         if (obstacleHit && obstacleHit.collider != _collider) {
             return false;
         }
 
-        RaycastHit2D groundHit = Physics2D.BoxCast((Vector2) _collider.bounds.center + _groundCheckDistance * dir, _collider.bounds.size, 0, Vector2.down, _maxHeight, _groundlayer);
+        RaycastHit2D groundHit = Physics2D.BoxCast(
+            (Vector2) _collider.bounds.center + _groundCheckDistance * dir, 
+            _collider.bounds.size, 0, Vector2.down, _maxHeight, _groundlayer
+        );
         return groundHit;
     }
 
