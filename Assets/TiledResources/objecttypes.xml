@@ -2,11 +2,15 @@
 <objecttypes>
  <objecttype name="bug_blue" color="#55ffff">
   <property name="SetType" type="string" default="blue"/>
+  <property name="unity:layer" type="string" default="Objectives"/>
  </objecttype>
  <objecttype name="bug_yellow" color="#ffff00">
   <property name="SetType" type="string" default="yellow"/>
+  <property name="unity:layer" type="string" default="Objectives"/>
  </objecttype>
- <objecttype name="enemy" color="#ff0000"/>
+ <objecttype name="enemy" color="#ff0000">
+  <property name="unity:layer" type="string" default="Enemies"/>
+ </objecttype>
  <objecttype name="ground" color="#aa5500"/>
  <objecttype name="player_spawn" color="#00ff7f"/>
 </objecttypes>
