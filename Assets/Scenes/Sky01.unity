@@ -626,6 +626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objects: {fileID: 1398499853}
+  _deathAnimation: {fileID: 2753663950245048332, guid: 64d07d36f4e092c4aa37505f9e14f52e, type: 3}
   _vcam: {fileID: 1345519542}
   _markerPrefab: {fileID: 5894085432901705071, guid: 572d997c480df8e40ace638388083861, type: 3}
   _markerSprites:

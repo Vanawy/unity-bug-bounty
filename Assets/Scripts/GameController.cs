@@ -11,6 +11,9 @@ public class GameController : MonoBehaviour
     [Header("Level")]
     [SerializeField]
     private SuperObjectLayer _objects;
+    private PlayerController _player;
+    [SerializeField]
+    private OnDeath _deathAnimation;
 
     [SerializeField]
     private Cinemachine.CinemachineVirtualCamera _vcam;
@@ -37,15 +40,16 @@ public class GameController : MonoBehaviour
     private float _startLevelTime;
     private float _endLevelTime = -1f;
 
+
     void Awake()
     {
-        PlayerController player = _objects.GetComponentInChildren<PlayerController>();
-        _vcam.m_Follow = player.transform;
+        _player = _objects.GetComponentInChildren<PlayerController>();
+        _vcam.m_Follow = _player.transform;
 
-        PlayerDeath playerDeath = player.gameObject.GetComponent<PlayerDeath>();
+        PlayerDeath playerDeath = _player.gameObject.GetComponent<PlayerDeath>();
         playerDeath.OnRestart += RestartLevel;
 
-        ObjectiveCollector collector = player.gameObject.GetComponent<ObjectiveCollector>(); 
+        ObjectiveCollector collector = _player.gameObject.GetComponent<ObjectiveCollector>(); 
         collector.OnCollect += TakeObjective;
 
         _startLevelTime = Time.time;
@@ -55,7 +59,7 @@ public class GameController : MonoBehaviour
         {
             GameObject marker = Instantiate(_markerPrefab);
             MarkerController controller = marker.GetComponent<MarkerController>();
-            controller.parent = player.transform;
+            controller.parent = _player.transform;
             controller.target = objective.transform;
             switch (objective.type)
             {
@@ -88,6 +92,17 @@ public class GameController : MonoBehaviour
     }
     
     private void RestartLevel()
+    {
+        if (!_player) {
+            ReloadScene();
+            return;
+        }
+        OnDeath death = Instantiate<OnDeath>(_deathAnimation, _player.transform.position, _player.transform.rotation);
+        death.gameController = this;
+        Destroy(_player.gameObject);
+    }
+
+    public void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
