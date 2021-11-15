@@ -17,7 +17,7 @@ public class PlayerDeath : MonoBehaviour
         }
     }       
 
-    private void OnCollisionEnter2D(Collision2D other) {
+    private void OnCollisionStay2D(Collision2D other) {
         // idk how to do it properly rn
         if (_cantTouchThis != (_cantTouchThis | 1 << other.collider.gameObject.layer))
             return;
