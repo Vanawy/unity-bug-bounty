@@ -5,6 +5,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(AudioSource))]
 public class PlayerController : MonoBehaviour
 {
     private float _inputY = 0, _inputX = 0;
@@ -57,6 +58,12 @@ public class PlayerController : MonoBehaviour
     private ParticleSystem _jumpEffect;
     [SerializeField]
     private LayerMask _obstacles;
+    [Header("Sounds")]
+    [SerializeField]
+    private AudioClip[] _footsteps;
+    [SerializeField]
+    private AudioClip _jumpSound;
+    private AudioSource _audio;
 
 
     void Awake()
@@ -65,6 +72,7 @@ public class PlayerController : MonoBehaviour
         _animator = GetComponent<Animator>();
         _sr = GetComponent<SpriteRenderer>();
         _collider = GetComponent<Collider2D>();
+        _audio = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -173,5 +181,19 @@ public class PlayerController : MonoBehaviour
         float angle = Vector2.SignedAngle(hit.normal, Vector2.left);
         ParticleSystem jump = Instantiate<ParticleSystem>(_jumpEffect, hit.point, Quaternion.Euler(-90, 0, angle + 90));
         jump.Play();
+        PlayJumpSound();
+    }
+
+    private void PlayFootstepSound()
+    {
+        if(_isJumping) return;
+        _audio.clip = _footsteps[Random.Range(0, _footsteps.Length)];
+        _audio.Play();
+    }
+
+    private void PlayJumpSound()
+    {
+        _audio.clip = _jumpSound;
+        _audio.Play();
     }
 }

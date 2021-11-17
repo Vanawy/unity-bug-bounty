@@ -40,6 +40,11 @@ public class GameController : MonoBehaviour
     private float _startLevelTime;
     private float _endLevelTime = -1f;
 
+    [Header("Audio")]
+    private AudioSource _audio;
+    [SerializeField]
+    private AudioClip _collectedSound;
+
 
     void Awake()
     {
@@ -51,6 +56,7 @@ public class GameController : MonoBehaviour
 
         ObjectiveCollector collector = _player.gameObject.GetComponent<ObjectiveCollector>(); 
         collector.OnCollect += TakeObjective;
+        _audio = GetComponent<AudioSource>();
 
         _startLevelTime = Time.time;
         _objectives = _objects.GetComponentsInChildren<ObjectiveController>();
@@ -122,6 +128,9 @@ public class GameController : MonoBehaviour
                 break;
         }
         Destroy(objective.gameObject);
+        
+        _audio.clip = _collectedSound;
+        _audio.Play();
 
         if (_blueCollected == _blueTotal && _yellowCollected == _yellowTotal) {
             AllObjectivesCollected();
