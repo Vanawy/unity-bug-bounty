@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour
     private Sprite[] _markerSprites;
 
     private ObjectiveController[] _objectives;
+    private SlimeAI[] _enemies;
 
     private int _yellowTotal = 0;
     private int _yellowCollected = 0;
@@ -40,10 +41,25 @@ public class GameController : MonoBehaviour
     private float _startLevelTime;
     private float _endLevelTime = -1f;
 
+    [Header("Effects")]
+    [SerializeField]
+    private ParticleSystem _collectionEffect;
+    [SerializeField]
+    private ParticleSystem _endLevelEffect;
+
     [Header("Audio")]
-    private AudioSource _audio;
     [SerializeField]
     private AudioClip _collectedSound;
+    private AudioSource _audio;
+    [SerializeField]
+    private AudioClip _deathSound;
+
+    [Header("Camera")]
+    [SerializeField]
+    private Animator _vcamAnimator;
+
+    [SerializeField]
+    private string _nextScene;
 
 
     void Awake()
@@ -83,6 +99,7 @@ public class GameController : MonoBehaviour
                     break;
             }
         }
+        _enemies = _objects.GetComponentsInChildren<SlimeAI>();
     }
 
     void Update()
@@ -106,6 +123,8 @@ public class GameController : MonoBehaviour
         OnDeath death = Instantiate<OnDeath>(_deathAnimation, _player.transform.position, _player.transform.rotation);
         death.gameController = this;
         Destroy(_player.gameObject);
+        _audio.clip = _deathSound;
+        _audio.Play();
     }
 
     public void ReloadScene()
@@ -127,6 +146,7 @@ public class GameController : MonoBehaviour
                 _yellowCollected++;
                 break;
         }
+        Instantiate(_collectionEffect, objective.transform.position, objective.transform.rotation);
         Destroy(objective.gameObject);
         
         _audio.clip = _collectedSound;
@@ -154,5 +174,22 @@ public class GameController : MonoBehaviour
         _endLevelTime = Time.time;
         TimeSpan time = TimeSpan.FromSeconds(_endLevelTime - _startLevelTime);
         Debug.Log(string.Format("All objectives collected in {0}", FormatHelper.FormatTimeSpan(time)));
+        EndLevel();
+    }
+
+    private void EndLevel()
+    {
+        _player.SetInput();
+        _player.updateUserInput = false;
+        foreach (var enemy in _enemies)
+        {
+            enemy.gameObject.SetActive(false);
+        }
+        _vcamAnimator.SetTrigger("level_end");
+    }
+
+    public void NextScene()
+    {
+        SceneManager.LoadScene(_nextScene);
     }
 }

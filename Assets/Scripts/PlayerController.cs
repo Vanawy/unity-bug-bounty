@@ -9,7 +9,9 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     private float _inputY = 0, _inputX = 0;
-    private bool _inputJump, _inputJumpDown;
+    private bool _inputJump;
+
+    public bool updateUserInput = true;
 
     private Rigidbody2D _rb;
     private Animator _animator;
@@ -66,6 +68,7 @@ public class PlayerController : MonoBehaviour
     private AudioSource _audio;
 
 
+
     void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -76,10 +79,18 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        _inputX = Input.GetAxis("Horizontal");
-        _inputY = Input.GetAxis("Vertical");
-        _inputJumpDown = Input.GetButtonDown("Jump") || _inputJumpDown;
-        _inputJump = Input.GetButton("Jump");
+        if (updateUserInput) {
+            _inputX = Input.GetAxis("Horizontal");
+            _inputY = Input.GetAxis("Vertical");
+            _inputJump = Input.GetButton("Jump");
+        }
+    }
+
+    public void SetInput(float x = 0, float y = 0, bool jump = false)
+    {
+        _inputX = Mathf.Clamp(x, -1, 1);
+        _inputY = Mathf.Clamp(y, -1, 1);
+        _inputJump = jump;
     }
 
     void FixedUpdate() {
@@ -92,7 +103,6 @@ public class PlayerController : MonoBehaviour
         BetterJump();
         OnWall();
         Move();
-        _inputJumpDown = false;
         UpdateAnimator();
         Debug.DrawRay(transform.position, _rb.velocity, Color.magenta);
     }

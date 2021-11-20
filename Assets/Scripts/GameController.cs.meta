@@ -3,7 +3,15 @@ guid: 693643d9d00329e45bfc9b80da200228
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _objects: {instanceID: 0}
+  - _deathAnimation: {instanceID: 0}
+  - _vcam: {instanceID: 0}
+  - _markerPrefab: {instanceID: 0}
+  - _yellowCounter: {instanceID: 0}
+  - _blueCounter: {instanceID: 0}
+  - _timer: {instanceID: 0}
+  - _collectedSound: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
